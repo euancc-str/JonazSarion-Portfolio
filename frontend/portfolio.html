@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jonaz Euan A. Sarion | BSIT Student Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* CSS Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #10b981;
+            --primary-light: #34d399;
+            --primary-lighter: #a7f3d0;
+            --secondary-color: #065f46;
+            --accent-color: #059669;
+            --accent-light: #10b981;
+            --light-color: #f9fafb;
+            --light-green: #f0fdf4;
+            --dark-color: #1f2937;
+            --gray-light: #e5e7eb;
+            --gray-medium: #9ca3af;
+            --gray-dark: #4b5563;
+            --success-color: #10b981;
+            --card-bg: #ffffff;
+            --section-bg: #f0fdf4;
+            --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 50px -12px rgba(0, 0, 0, 0.25);
+            --border-radius: 12px;
+            --border-radius-sm: 8px;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: var(--dark-color);
+            background-color: var(--light-color);
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--secondary-color);
+            position: relative;
+            display: inline-block;
+            margin-bottom: 3rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            color: var(--gray-dark);
+            line-height: 1.8;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        section {
+            padding: 6rem 0;
+            position: relative;
+        }
+
+        .section-bg {
+            background: linear-gradient(to bottom, var(--light-green), var(--light-color));
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-title h2 {
+            margin-bottom: 1rem;
+        }
+
+        .section-title h2::after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title p {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--gray-dark);
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 0.9rem 2rem;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: var(--transition-slow);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        .btn-outline:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            height: 100%;
+            border: 1px solid var(--gray-light);
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+            border-color: var(--primary-lighter);
+        }
+
+        /* Header / Navigation */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: var(--shadow-sm);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid var(--gray-light);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            font-weight: 600;
+            color: var(--gray-dark);
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-links a.active::after {
+            width: 100%;
+        }
+
+        .hamburger {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--primary-color);
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--light-color) 0%, var(--light-green) 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 80%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary-lighter) 0%, transparent 70%);
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 700px;
+        }
+
+        .hero-content .title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2.5rem;
+            color: var(--gray-dark);
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+
+
+        .profile-image {
+            position: relative;
+            box-shadow: 0 0 0 5px white, 0 0 0 10px var(--primary-color), var(--shadow-xl);
+            border-radius: var(--border-radius);
+            background: white;
+            margin: 20px;
+        }
+
+        .profile-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            border-radius: var(--border-radius);
+        }
+
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+            animation: shine 3s infinite linear;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+
+        .student-badge {
+            position: absolute;
+            bottom: -15px;
+            right: -20px;
+            background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border: 3px solid white;
+            z-index: 10;
+            animation: floatBadge 3s ease-in-out infinite;
+        }
+
+
+        @keyframes floatBadge {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-5px);
+            }
+        }
+
+        @keyframes shine {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Personal Info Section */
+        .personal-info-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .info-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 2.5rem 2rem;
+        }
+
+        .info-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .info-card h3 {
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .info-list {
+            text-align: left;
+            width: 100%;
+        }
+
+        .info-list li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid var(--gray-light);
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .info-list li:last-child {
+            border-bottom: none;
+        }
+
+        .info-label {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .info-value {
+            color: var(--gray-dark);
+        }
+
+        /* Education Section */
+        .education-timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .education-timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, var(--light-green), var(--primary-color));
+        }
+
+        .education-item {
+            position: relative;
+            padding-left: 80px;
+            margin-bottom: 3rem;
+        }
+
+        .education-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .education-year {
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-color) 100%);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: var(--border-radius-sm);
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category i {
+            color: var(--primary-color);
+            font-size: 1.3rem;
+        }
+
+        .skill-item {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-name {
+            font-weight: 600;
+            color: var(--secondary-color);
+        }
+
+        .skill-level {
+            color: var(--gray-dark);
+            font-size: 0.9rem;
+        }
+
+        .skill-bar {
+            height: 8px;
+            background-color: var(--gray-light);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(90deg, var(--light-green), var(--primary-color));
+            border-radius: 4px;
+            width: 0;
+            transition: width 1.5s ease-in-out;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .project-card {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-img {
+            height: 200px;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-color) 100%);
+            border-radius: var(--border-radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-img i {
+            font-size: 3.5rem;
+            z-index: 1;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .project-tag {
+            background-color: var(--light-green);
+            color: var(--secondary-color);
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: var(--transition);
+            border: 1px solid var(--primary-lighter);
+        }
+
+        .project-tag:hover {
+            background-color: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: auto;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1.2rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-color) 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 1rem 1.2rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--gray-light);
+            border-radius: var(--border-radius-sm);
+            font-family: inherit;
+            font-size: 1rem;
+            transition: var(--transition);
+            background-color: var(--light-color);
+        }
+
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+        }
+
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            width: 50px;
+            height: 50px;
+            background-color: var(--light-green);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 1.2rem;
+            transition: var(--transition);
+            border: 1px solid var(--primary-lighter);
+        }
+
+        .social-link:hover {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-color) 100%);
+            color: white;
+            transform: translateY(-5px);
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--dark-color) 100%);
+            color: white;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .footer-links h3,
+        .footer-contact h3 {
+            color: white;
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+
+        .footer-links ul {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .footer-links a {
+            color: var(--light-green);
+            transition: var(--transition);
+        }
+
+        .footer-links a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--light-green);
+            font-size: 0.9rem;
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: var(--transition-slow);
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Green accent elements */
+        .accent-line {
+            height: 4px;
+            background: linear-gradient(90deg, var(--light-green), var(--primary-color));
+            border-radius: 2px;
+            margin: 1rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2.2rem;
+            }
+
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                box-shadow: var(--shadow-lg);
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: var(--transition);
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content .title {
+                font-size: 1.2rem;
+            }
+
+            section {
+                padding: 4rem 0;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .education-timeline::before {
+                left: 20px;
+            }
+
+            .education-item {
+                padding-left: 60px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            .hero-btns {
+                flex-direction: column;
+                width: 100%;
+            }
+
+            .hero-btns .btn {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .personal-info-container {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header / Navigation Bar -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="#home" class="logo">
+                    <i class="fas fa-leaf" style="color: var(--primary-color);"></i> Jonaz<span>Sarion</span>
+                </a>
+                <ul class="nav-links">
+                    <li><a href="#home" class="active">Home</a></li>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#personal-info">Personal Info</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#skills">Skills</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <button class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <div class="hero-content fade-in">
+                <h1>Jonaz Euan A. Sarion</h1>
+                <p class="title">2nd Year BSIT Student & Aspiring Developer</p>
+                <p>Passionate about creating elegant solutions to complex problems through code.
+                    Currently expanding my expertise in full-stack development and system design.</p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn">
+                        <i class="fas fa-rocket"></i> View Projects
+                    </a>
+                    <a href="#contact" class="btn btn-outline">
+                        <i class="fas fa-envelope"></i> Get In Touch
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>About Me</h2>
+                <p>Learn more about my journey, passions, and aspirations in technology</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text fade-in">
+                    <p>Hello! I'm Jonaz Euan A. Sarion, a dedicated 2nd-year BSIT student with a
+                        strong passion for technology and problem-solving. My journey in Information
+                        Technology began with curiosity about how software and systems work, and it
+                        has grown into a commitment to building efficient and user-friendly applications.</p>
+                    <p>My interests span across web development, system design, and database
+                        management. I enjoy creating clean, functional interfaces and robust
+                        back-end systems. I'm particularly fascinated by how different technologies
+                        can be integrated to solve real-world problems.</p>
+                    <p>When I'm not coding, I enjoy reading tech blogs and exploring new frameworks and tools that can
+                        enhance my
+                        development skills.</p>
+                </div>
+                <div class="about-image fade-in">
+                    <div class="profile-image">
+                        <img src="jonaz.jpg" alt="Jonaz Sarion" class="my-photo">
+
+                        <div class="student-badge">
+                            <i class="fas fa-graduation-cap"></i> BSIT Student
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Personal Info Section -->
+    <section id="personal-info" class="section-bg">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Personal Information</h2>
+                <p>Get to know more about me personally and professionally</p>
+            </div>
+            <div class="personal-info-container">
+                <div class="info-card card fade-in">
+                    <div class="info-icon">
+                        <i class="fas fa-user-circle"></i>
+                    </div>
+                    <h3>Basic Details</h3>
+                    <ul class="info-list">
+                        <li>
+                            <span class="info-label">Age:</span>
+                            <span class="info-value">20</span>
+                        </li>
+                        <li>
+                            <span class="info-label">Location:</span>
+                            <span class="info-value">Philippines</span>
+                        </li>
+                        <li>
+                            <span class="info-label">Email:</span>
+                            <span class="info-value">jonazesarion03012005@gmail.com</span>
+                        </li>
+                        <li>
+                            <span class="info-label">Phone:</span>
+                            <span class="info-value">+63 9634470406</span>
+                        </li>
+                        <li>
+                            <span class="info-label">Status:</span>
+                            <span class="info-value">BSIT Student</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="info-card card fade-in">
+                    <div class="info-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3>Interests</h3>
+                    <ul class="info-list">
+                        <li>Web Development</li>
+                        <li>System Architecture</li>
+                        <li>Database Design</li>
+                    </ul>
+                </div>
+
+                <div class="info-card card fade-in">
+                    <div class="info-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Languages</h3>
+                    <ul class="info-list">
+                        <li>
+                            <span class="info-label">English:</span>
+                            <span class="info-value">Fluent</span>
+                        </li>
+                        <li>
+                            <span class="info-label">Filipino:</span>
+                            <span class="info-value">Native</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Education</h2>
+                <p>My academic journey and achievements</p>
+            </div>
+            <div class="education-timeline">
+                <div class="education-item fade-in">
+                    <div class="education-year">2023 - Present</div>
+                    <div class="card">
+                        <h3>Bachelor of Science in Information Technology</h3>
+                        <p><strong>Camarines Norte State College</strong></p>
+                        <p><strong>Year Level:</strong> 2nd Year</p>
+
+                        <p><strong>Relevant Coursework:</strong> Web Development, Database Management,
+                            Object-Oriented Programming, Systems Analysis and Design, Data Structures
+                        </p>
+                    </div>
+                </div>
+
+                <div class="education-item fade-in">
+                    <div class="education-year">2021 - 2023</div>
+                    <div class="card">
+                        <h3>Senior High School - STEM Track</h3>
+                        <p><strong>La Consolacion College of Daet</strong></p>
+                        <p><strong>Achievements:</strong> With Honors</p>
+                        <p><strong>Focus:</strong>Mathematics, Physics, Research Methodology</p>
+                    </div>
+                </div>
+                <div class="education-item fade-in">
+                    <div class="education-year">2018 - 2022</div>
+                    <div class="card">
+                        <h3>Junior High School</h3>
+                        <p><strong>La Consolacion College of Daet</strong></p>
+                        <p><strong>Achievements:</strong> Completed Junior High School Education</p>
+                    </div>
+                </div>
+                <div class="education-item fade-in">
+                    <div class="education-year">2012 - 2018</div>
+                    <div class="card">
+                        <h3>Elementary School</h3>
+                        <p><strong>CNSC - Abaño Campus</strong></p>
+                        <p><strong>Achievements:</strong> Completed Elemantary School Education</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section-bg">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>My Skills</h2>
+                <p>Technologies and tools I work with</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category card fade-in">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Java</span>
+                            <span class="skill-level">Intermediate</span>
+
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                        <div class="skill-header">
+                            <span class="skill-name">PHP</span>
+                            <span class="skill-level">Beginner</span>
+
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="30"></div>
+                        </div>
+                    </div>
+                    <div class="accent-line"></div>
+                    <div class="skill-list">
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Object-Oriented
+                            Programming</p>
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Data Structures &
+                            Algorithms</p>
+                    </div>
+                </div>
+
+                <div class="skill-category card fade-in">
+                    <h3><i class="fas fa-globe"></i> Web Technologies</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">HTML/CSS</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60"></div>
+                        </div>
+                    </div>
+                    <div class="accent-line"></div>
+                    <div class="skill-list">
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Responsive Web
+                            Design</p>
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> CSS Grid & Flexbox
+                        </p>
+                    </div>
+                </div>
+
+                <div class="skill-category card fade-in">
+                    <h3><i class="fas fa-database"></i> Database</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">MySQL</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+                    <div class="accent-line"></div>
+                    <div class="skill-list">
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> Database Design</p>
+                        <p><i class="fas fa-check-circle" style="color: var(--primary-color);"></i> SQL Queries</p>
+                    </div>
+                </div>
+
+                <div class="skill-category card fade-in">
+                    <h3><i class="fas fa-tools"></i> Tools & Software</h3>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">VS Code</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Figma</span>
+                            <span class="skill-level">Beginner</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill-category card fade-in">
+                    <h3><i class="fas fa-users"></i> Soft Skills</h3>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Problem Solving</span>
+                            <span class="skill-level">Advanced</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Team Collaboration</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-header">
+                            <span class="skill-name">Communication</span>
+                            <span class="skill-level">Intermediate</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>My Projects</h2>
+                <p>Some of my recent work and personal projects</p>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card card fade-in">
+                    <div class="project-img">
+                        <img src="learnmmw.jpg" alt="app Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Learn MMW App</h3>
+                        <p>An educational application built in Java designed to help students master "Mathematics in the
+                            Modern World." It simplifies complex formulas and concepts into an interactive learning
+                            tool.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">OOP</span>
+                            <span class="project-tag">Education</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card fade-in">
+                    <div class="project-img">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="project-info">
+                        <h3>Emergency Escape</h3>
+                        <p>A pathfinding strategy game where players navigate obstacles to reach the "Teacher" safe
+                            zone. Features a smart flag system that calculates the shortest path to safety so players
+                            don't get stuck.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">Pathfinding Algo</span>
+                            <span class="project-tag">Logic</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card fade-in">
+                    <div class="project-img">
+                        <img src="unggoy.png" alt="unggoy Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Unggoy Unggoyan</h3>
+                        <p>A digital recreation of the classic Filipino card game (Old Maid). Features a configurable
+                            "Player vs. AI" mode where you can challenge <strong>1 to 4 computer opponents</strong>.
+                            Built using Java OOP to handle dynamic deck distribution and turn-based logic for variable
+                            player counts.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java Swing</span>
+                            <span class="project-tag">Game Dev</span>
+                            <span class="project-tag">OOP</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card fade-in">
+                    <div class="project-img">
+                        <img src="queue.png" alt="E-commerce Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Queue Cashier Game</h3>
+                        <p>A simulation game where you play as a cashier for a basketball arena. Utilizes Queue data
+                            structures to manage the influx of fans rushing to get their tickets before the game starts.
+                        </p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">Data Structures</span>
+                            <span class="project-tag">Queue</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card fade-in">
+                    <div class="project-img">
+                        <img src="lib.png" alt="E-commerce Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Library Management System</h3>
+                        <p>A robust system for tracking book inventories and borrower records. It utilizes
+                            `BufferedWriter` for efficient file handling, ensuring data is saved securely without an
+                            external database.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java</span>
+                            <span class="project-tag">File I/O</span>
+                            <span class="project-tag">BufferedWriter</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card fade-in">
+                    <div class="project-img">
+                        <img src="brgysystem.png" alt="E-commerce Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>Barangay Management System</h3>
+                        <p>A record-keeping system designed to help local barangays manage resident data and
+                            certificates efficiently using Java Swing for the interface.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Java Swing</span>
+                            <span class="project-tag">CRUD</span>
+                            <span class="project-tag">Admin Tools</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card card fade-in">
+                    <div class="project-img">
+                        <img src="ecomm.png" alt="E-commerce Project">
+                    </div>
+                    <div class="project-info">
+                        <h3>E-commerce Platform</h3>
+                        <p>A fully functional online shopping system built from scratch. It features a dynamic product
+                            catalog, secure user authentication, and a session-based shopping cart. This project
+                            demonstrates full-stack skills by connecting a responsive frontend to a robust PHP & MySQL
+                            backend.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">PHP</span>
+                            <span class="project-tag">MySQL</span>
+                            <span class="project-tag">HTML/CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                            <span class="project-tag">Web Dev</span>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section-bg">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>Contact Me</h2>
+                <p>Let's connect and build something amazing together</p>
+            </div>
+            <div class="contact-container">
+                <div class="contact-form fade-in">
+                    <form id="contactForm">
+                        <input type="text" name="name" placeholder="Your Name" required>
+                        <input type="email" name="email" placeholder="Your Email" required>
+                        <textarea name="message" placeholder="Your Message" required></textarea>
+                        <button type="submit" class="btn">
+                            <i class="fas fa-paper-plane"></i> Send Message
+                        </button>
+                    </form>
+                </div>
+                <div class="contact-info fade-in">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h3>Email</h3>
+                            <p>jonazesarion03012005@gmail.com</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h3>Phone</h3>
+                            <p>+63 963 447 0406</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h3>Location</h3>
+                            <p>Philippines</p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h3>Availability</h3>
+                            <p>Open for internships, projects, and collaborations</p>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/jonaz.sarion" class="social-link">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <div class="footer-logo">
+                        <i class="fas fa-leaf" style="color: var(--primary-lighter); margin-right: 8px;"></i>JonazSarion
+                    </div>
+                    <p style="color:#e5e7eb">A passionate BSIT student focused on creating meaningful digital
+                        experiences through code and design.</p>
+                </div>
+
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#personal-info">Personal Info</a></li>
+                        <li><a href="#education">Education</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-contact">
+                    <h3>Contact Info</h3>
+                    <p style="color:#e5e7eb"><i class="fas fa-envelope "></i> jonazesarion03012005@gmail.com</p>
+                    <p style="color:#e5e7eb"><i class="fas fa-map-marker-alt"></i> Philippines</p>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p style="color:#e5e7eb">&copy; 2025 Jonaz Euan A. Sarion. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.innerHTML = navLinks.classList.contains('active')
+                ? '<i class="fas fa-times"></i>'
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Active navigation highlighting
+        const sections = document.querySelectorAll('section');
+        const navItems = document.querySelectorAll('.nav-links a');
+
+        function highlightNav() {
+            let scrollPos = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    navItems.forEach(item => {
+                        item.classList.remove('active');
+                        if (item.getAttribute('href') === `#${sectionId}`) {
+                            item.classList.add('active');
+                        }
+                    });
+                }
+            });
+        }
+
+        // Scroll animation
+        function checkScroll() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+
+            // Animate skill bars
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const barTop = bar.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (barTop < windowHeight - 100) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
+                }
+            });
+
+            highlightNav();
+        }
+
+        // Initialize animations on load
+        window.addEventListener('load', () => {
+            checkScroll();
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Listen for scroll events
+        window.addEventListener('scroll', checkScroll);
+    </script>
+</body>
+
+</html>
